@@ -4,13 +4,15 @@
 <?php echo html::stylesheet('media/css/imgareaselect-default.css'); ?>
 <?php echo html::stylesheet('media/css/ui-' . $this->theme . '/jquery-ui.css'); ?>
 <?php echo html::link('media/images/favicon.ico', 'icon', 'image/ico'); ?>
-<?php echo html::script('media/js/jquery-min.js'); ?>
+<?php echo html::script('media/js/jquery-3.7.1.min.js'); ?>
 <?php echo html::script('media/js/jquery.imgareaselect.min.js'); ?>
-<?php echo html::script('media/js/jquery-ui.min.js'); ?>
+<?php echo html::script('media/js/jquery-ui-1.14.1.min.js'); ?>
 
 <script type="text/javascript">
 jQuery.noConflict();
-    jQuery(window).load(
+// jQuery >= 1.9 has no $.browser, which imgAreaSelect still reads
+jQuery.browser = jQuery.browser || {};
+    jQuery(window).on('load',
         function() {
 
         jQuery('div.graph').each(function(){

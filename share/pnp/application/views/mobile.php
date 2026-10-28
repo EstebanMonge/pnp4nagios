@@ -7,7 +7,7 @@
 <?php echo html::link('media/images/home.png', 'apple-touch-icon', ''); ?>
 <?php echo html::stylesheet('media/css/jquery.mobile.min.css'); ?>
 <?php echo html::stylesheet('media/css/mobile.css'); ?>
-<?php echo html::script('media/js/jquery-min.js'); ?>
+<?php echo html::script('media/js/jquery-1.8.1.min.js'); ?>
 <?php echo html::script('media/js/jquery.mobile.min.js'); ?>
 </head> 
 <body> 
