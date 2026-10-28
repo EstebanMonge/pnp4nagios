@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="@PNP_URL@/media/css/ui-smoothness/jquery-ui.css" type="text/css" />
 <style type="text/css">
-.ui-tooltip { position: absolute; z-index: 9999; max-width: none; padding: 4px; background: #fff; border: 1px solid #aaa; box-shadow: 0 0 6px rgba(0,0,0,.4); }
+.ui-tooltip { max-width: none; }
 </style>
 <script src="@PNP_URL@/media/js/jquery-3.7.1.min.js" type="text/javascript"></script>
 <script src="@PNP_URL@/media/js/jquery-ui-1.14.1.min.js" type="text/javascript"></script>
