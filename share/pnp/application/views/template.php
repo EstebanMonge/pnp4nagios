@@ -14,7 +14,6 @@
 <?php echo html::script('media/js/jquery-3.7.1.min.js')?>
 <?php echo html::script('media/js/pnp-range-select.js')?>
 <?php echo html::script('media/js/jquery-ui-1.14.1.min.js')?>
-<?php echo html::script('media/js/jquery-ui-timepicker-addon.js')?>
 <script type="text/javascript">
 jQuery.noConflict();
 jQuery(window).on('load',
