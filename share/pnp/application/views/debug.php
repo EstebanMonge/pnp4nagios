@@ -24,25 +24,25 @@ if ($this->is_authorized === false) {
     <div id="tabs-1">
     <h3>$this->data->STRUCT</h3>
     <pre>
-<?php print_r($this->data->STRUCT);?>
+<?php echo html::specialchars(print_r($this->data->STRUCT, true)); ?>
     </pre>
     </div>
     <div id="tabs-2">
     <h3>$this->data->DS</h3>
     <pre>
-<?php print_r($this->data->DS);?>
+<?php echo html::specialchars(print_r($this->data->DS, true)); ?>
     </pre>
     </div>
     <div id="tabs-3">
     <h3>$this->data->MACRO</h3>
     <pre>
-<?php print_r($this->data->MACRO);?>
+<?php echo html::specialchars(print_r($this->data->MACRO, true)); ?>
     </pre>
     </div>
     <div id="tabs-4">
     <h3>$this->session->get()</h3>
     <pre>
-<?php print_r($this->session->get());?>
+<?php echo html::specialchars(print_r($this->session->get(), true)); ?>
     </pre>
     </div>
 </div>

@@ -80,6 +80,11 @@ $kohana_modules = 'modules';
  */
 $kohana_system = '@KOHANA_SYSTEM@';
 
+// Do not advertise the PHP version
+if (function_exists('header_remove')) {
+    header_remove('X-Powered-By');
+}
+
 /**
  * Test to make sure that Kohana is running on PHP 5.2 or newer. Once you are
  * sure that your environment is compatible with Kohana, you can comment this
@@ -92,7 +97,7 @@ version_compare(PHP_VERSION, '5.1', '<') and exit('Kohana requires PHP 5.1 or ne
  * Set the error reporting level. Unless you have a special need, E_ALL is a
  * good level for error reporting.
  */
-error_reporting(E_ALL & ~E_STRICT);
+error_reporting(E_ALL);
 
 /**
  * Turning off display_errors will effectively disable Kohana error display

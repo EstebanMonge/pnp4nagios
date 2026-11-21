@@ -54,6 +54,9 @@ class System_Controller extends Template_Controller
     {
         parent::__construct();
 
+        // Stop browsers from second-guessing the Content-Type we send
+        header('X-Content-Type-Options: nosniff');
+
         $this->data    = new Data_Model();
         $this->config  = new Config_Model();
         $this->rrdtool = new Rrdtool_Model();
@@ -251,7 +254,7 @@ class System_Controller extends Template_Controller
         if ($this->session->get('classic-ui', 0) == 1) {
              return false;
         }
-        if (preg_match('/' . $this->config->conf['mobile_devices'] . '/', $_SERVER['HTTP_USER_AGENT'])) {
+        if (preg_match('/' . $this->config->conf['mobile_devices'] . '/', $_SERVER['HTTP_USER_AGENT'] ?? '')) {
             return true;
         } else {
             return false;

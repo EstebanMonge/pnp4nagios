@@ -30,6 +30,7 @@ class nagios_Core
         $emin = date('i', $end);
         $esec = date('s', $end);
         $nagios_base = $config->conf['nagios_base'];
+        $hostname = html::specialchars(urlencode($hostname));
         print "<a href=\"$nagios_base/summary.cgi?report=1&displaytype=1" .
             "&timeperiod=custom&smon=$smon&sday=$sday&syear=$syear&shour=$shour" .
             "&smin=$smin&ssec=$ssec&emon=$emon&eday=$eday&eyear=$eyear&ehour=$ehour" .
@@ -42,8 +43,8 @@ class nagios_Core
     {
         $config     = new Config_Model();
         $config->read_config();
-        $hostname = urlencode($hostname);
-        $servicedesc = urlencode($servicedesc);
+        $hostname = html::specialchars(urlencode($hostname));
+        $servicedesc = html::specialchars(urlencode($servicedesc));
         $smon = date('m', $start);
         $sday = date('d', $start);
         $syear = date('Y', $start);

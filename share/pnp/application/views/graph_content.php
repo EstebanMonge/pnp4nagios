@@ -26,7 +26,7 @@ if ($this->data->ERROR != null) {
 $count = 0;
 foreach ($this->data->STRUCT as $key => $value) {
     if ($value['LEVEL'] == 0) {
-        echo "<strong>Host: </strong>" . $value['MACRO']['DISP_HOSTNAME'] . " <strong>Service: </strong>" . $value['MACRO']['DISP_SERVICEDESC'] . "<p>\n";
+        echo "<strong>Host: </strong>" . html::specialchars($value['MACRO']['DISP_HOSTNAME']) . " <strong>Service: </strong>" . html::specialchars($value['MACRO']['DISP_SERVICEDESC']) . "<p>\n";
         echo "<strong>" . $value['TIMERANGE']['title'] . "</strong> " . $value['TIMERANGE']['f_start'] . " - " . $value['TIMERANGE']['f_end'] . "\n";
         $count = 0;
     }
@@ -42,7 +42,7 @@ foreach ($this->data->STRUCT as $key => $value) {
     echo "<div class=\"ui-widget-header ui-corner-top\">";
     echo "<table border=0 width=100%><tr>\n";
     echo "<td width=100% align=left>";
-    echo Kohana::lang('common.datasource', $value['ds_name']) . "</td>\n";
+    echo html::specialchars(Kohana::lang('common.datasource', $value['ds_name'])) . "</td>\n";
     echo "<td align=right>";
     echo nagios::SummaryLink(
         $value['MACRO']['DISP_HOSTNAME'],
@@ -84,9 +84,9 @@ foreach ($this->data->STRUCT as $key => $value) {
                                ), false);
     echo "<a href=\"" . url::base(true) . "graph" . $path
         . "\" title=\""
-        . Kohana::lang('common.host', $value['MACRO']['DISP_HOSTNAME']) . " "
-        . Kohana::lang('common.service', $value['MACRO']['DISP_SERVICEDESC']) . " "
-        . Kohana::lang('common.datasource', $value['ds_name']) . " "
+        . html::specialchars(Kohana::lang('common.host', $value['MACRO']['DISP_HOSTNAME'])) . " "
+        . html::specialchars(Kohana::lang('common.service', $value['MACRO']['DISP_SERVICEDESC'])) . " "
+        . html::specialchars(Kohana::lang('common.datasource', $value['ds_name'])) . " "
         . "\">\n";
 
     # urlencode the graph id, to prevent # chars in service names being

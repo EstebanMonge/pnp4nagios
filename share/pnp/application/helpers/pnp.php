@@ -21,6 +21,11 @@ class pnp_Core
             return $string;
         }
         $string = preg_replace('/[ :\/\\\]/', "_", $string);
+        // Slashes are gone, so "." and ".." are the only components that can still
+        // climb out of the RRD directory when this value is used in a file path.
+        if ($string === '.' || $string === '..') {
+            $string = str_replace('.', '_', $string);
+        }
         $string = htmlspecialchars($string);
         return $string;
     }
@@ -45,7 +50,7 @@ class pnp_Core
         if ($string == XML_STRUCTURE_VERSION) {
             $string = "valid";
         } else {
-            $string = Kohana::lang('error.xml-structure-mismatch', $string, XML_STRUCTURE_VERSION);
+            $string = Kohana::lang('error.xml-structure-mismatch', html::specialchars($string), XML_STRUCTURE_VERSION);
         }
         return $string;
     }

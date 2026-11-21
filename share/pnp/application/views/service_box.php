@@ -17,15 +17,15 @@
 <div class="p4 ui-widget-content ui-corner-bottom" id="services">
     <?php
     foreach ($services as $service) {
-        echo '<span id="service-' . $service['servicedesc'] . "\">\n";
+        echo '<span id="service-' . html::specialchars($service['servicedesc']) . "\">\n";
         $path = pnp::addToUri(['host' => $host, 'srv' => $service['name']]);
         echo pnp::add_to_basket_icon(
             $host,
             $service['name']
         );
 
-        echo '<a href="' . $path . '" class="multi' . $service['is_multi'] . ' ' . $service['state'] . '" title="' . $service['servicedesc'] . '">';
-        echo pnp::shorten($service['servicedesc']) . "</a><br>\n";
+        echo '<a href="' . $path . '" class="multi' . $service['is_multi'] . ' ' . $service['state'] . '" title="' . html::specialchars($service['servicedesc']) . '">';
+        echo html::specialchars(pnp::shorten($service['servicedesc'])) . "</a><br>\n";
         echo "</span>\n";
     }
     ?>

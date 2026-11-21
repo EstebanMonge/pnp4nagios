@@ -7,7 +7,7 @@
     echo "<strong>Host:&nbsp;</strong>" .
     html::anchor(
         'graph' .
-        "?host=" . $lhost,
+        "?host=" . urlencode($lhost),
         html::specialchars(pnp::shorten($host)) . "<br>"
     );
 }?>
@@ -15,8 +15,8 @@
     echo "<strong>Service:&nbsp;</strong>" .
     html::anchor(
         'graph' .
-        "?host=" . $lhost .
-        "&srv=" . $lservice,
+        "?host=" . urlencode($lhost) .
+        "&srv=" . urlencode($lservice),
         html::specialchars(pnp::shorten($service)) . "<br>"
     );
 }?>
